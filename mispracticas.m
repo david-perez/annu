@@ -16,6 +16,7 @@ fun = @funccorazon;
 x0 = [0;2];
 tinic = 0;
 tfin = 2*pi;
+% Pon N >= 10^5 para el método de Euler.
 N = 1000;
 
 % e^t
