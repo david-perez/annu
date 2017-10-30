@@ -16,8 +16,10 @@ fun = @funccorazon;
 x0 = [0;2];
 tinic = 0;
 tfin = 2*pi;
-% Pon N >= 10^5 para el método de Euler.
-N = 1000;
+% Pon N >= 10^5 para:
+%   - el método de Euler.
+%   - el método Runge-Kutta de orden 4 (mirk4).
+N = 100000;
 
 % e^t
 % fun = @funceuler;
