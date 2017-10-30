@@ -13,6 +13,7 @@
 %% Coméntese y descoméntese al gusto.
 
 fun = @funccorazon;
+jac = @jacfunccorazon; % Necesario para métodos implícitos.
 x0 = [0;2];
 tinic = 0;
 tfin = 2*pi;
