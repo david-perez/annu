@@ -2,23 +2,42 @@ m = size(x0, 1);
 figure(1)
 if m == 1
     plot(t, u(1, :), 'r') 
-    title('Soluci贸n en R x(t)')
+    title('Soluci髇 en R x(t)')
 elseif m == 2
     % Plottear x(t), y(t).
     subplot(2, 1, 1)
     plot(t, u(1, :), 'r')
-    title('Componente x(t) de la soluci贸n')
+    title('Componente x(t) de la soluci髇')
     legend('x(t)')
     
     subplot(2, 1, 2);
-    plot(t, u(2, :), 'b')
-    title('Componente y(t) de la soluci贸n')
+    plot(t, u(2, :), 'g')
+    title('Componente y(t) de la soluci髇')
     legend('y(t)')
     
-    % Plottear (x(t), y(t)) en otro gr谩fico aparte.
+    % Plottear (x(t), y(t)) en otro gr醘ico aparte.
     figure(2)
-    plot(u(1, :), u(2, :))
-    title('Soluci贸n en R^2 (x(t), y(t))')
+    plot(u(1, :), u(2, :), 'r')
+    title('Soluci髇 en R^2 (x(t), y(t))')
 elseif m == 3
-    % TODO
+    % Plottear x(t), y(t), z(t).
+    subplot(3, 1, 1)
+    plot(t, u(1, :), 'r')
+    title('Componente x(t) de la soluci髇')
+    legend('x(t)')
+    
+    subplot(3, 1, 2);
+    plot(t, u(2, :), 'g')
+    title('Componente y(t) de la soluci髇')
+    legend('y(t)')
+    
+    subplot(3, 1, 3);
+    plot(t, u(3, :), 'b')
+    title('Componente z(t) de la soluci髇')
+    legend('z(t)')
+    
+    % Plottear (x(t), y(t), z(t)) en otro gr醘ico aparte.
+    figure(2)
+    plot3(u(1, :), u(2, :), u(3, :), 'r')
+    title('Soluci髇 en R^3 (x(t), y(t), z(t))')
 end
