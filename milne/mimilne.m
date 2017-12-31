@@ -3,10 +3,10 @@ function [t, u] = mimilne(t0, tfin, N, x0, f)
     t = [t0:h:tfin];
     m = size(x0, 1);
     
-    [taux, uaux] = mirk4(t0, t(3), 2, x0, f);
+    [taux, uaux] = mirk4(t0, t(4), 3, x0, f);
     
     u = zeros(m, N + 1);
-    u(:, 1:3) = uaux;
+    u(:, 1:4) = uaux;
     for n = 4:N
         v1 = 2 * feval(f, t(n), u(:, n));
         v2 = - feval(f, t(n - 1), u(:, n - 1));
