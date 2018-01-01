@@ -3,10 +3,10 @@ function [t, u] = miab4(t0, tfin, N, x0, f, par)
     t = [t0:h:tfin];
     m = size(x0, 1);
     
-    [taux, uaux] = mirk4(t0, t(3), 2, x0, f, par);
+    [taux, uaux] = mirk4(t0, t(4), 3, x0, f, par);
     
     u = zeros(m, N + 1);
-    u(:, 1:3) = uaux;
+    u(:, 1:4) = uaux;
     for n = 4:N
         v1 = 55 * feval(f, t(n), u(:, n), par);
         v2 = -59 * feval(f, t(n - 1), u(:, n - 1), par);
