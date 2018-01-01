@@ -1,4 +1,4 @@
-function f = funccompet(t, x)
+function f = funccompet(t, x, ~)
     % x'(t) = ax(t) - bx(t)y(t) - ex(t)^2
     % y'(t) = -cy(t) + dx(t)y(t) - gy(t)^2
     % con a, b, c, d, e, g >= 0, t \in [0, 10], x0, y0 > 0 

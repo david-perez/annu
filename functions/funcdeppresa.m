@@ -1,4 +1,4 @@
-function f = funcdeppresa(t, x)
+function f = funcdeppresa(t, x, ~)
     % x'(t) = ax(t) - bx(t)y(t)
     % y'(t) = -cy(t) + dx(t)y(t)
     % con a, b, c, d >= 0, t \in [0, 100], x0 = 30, y0 = 50

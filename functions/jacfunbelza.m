@@ -1,4 +1,4 @@
-function J = jacfunbelza(t, x)
+function J = jacfunbelza(t, x, ~)
     % Tienes que usar los mismo parámetros que en funbelza.m
     alfa = 2e4;
     beta = 8e-4;

@@ -1,4 +1,4 @@
-function f = funclorenz(t, x)
+function f = funclorenz(t, x, ~)
     % x'(t) = sigma*(y(t) ? x(t))
     % y'(t) = ro*x(t) ? y(t) ? x(t)z(t)
     % z'(t) = x(t)y(t) ? beta*z(t)

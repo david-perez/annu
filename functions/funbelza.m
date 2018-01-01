@@ -1,4 +1,4 @@
-function f = funbelza(t, x)
+function f = funbelza(t, x, ~)
     % x_1' = alfa * (x_2 ? x_1 * x_2 + x_1 ? beta * x_1^2)
     % x_2' = (gamma * x_3 - x_2 - x_1 * x_2) / alfa
     % x_3' = delta * (x_1 ? x_3)
