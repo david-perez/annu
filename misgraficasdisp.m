@@ -6,7 +6,7 @@ legend('x(t)')
     
 subplot(2, 1, 2);
 plot(t, u(2, :), 'g')
-title('Componente x(t) de la solución')
-legend('x(t)')
+title('Componente x''(t) de la solución')
+legend('x''(t)')
 
 
