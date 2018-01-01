@@ -1,4 +1,4 @@
-function [t, u] = mimetadap(t0, tfin, x0, h0, hmin, TOL, f, metodo, orden, hmax)
+function [t, u] = mimetadap(t0, tfin, x0, h0, hmin, TOL, f, metodo, orden, hmax, par)
     facmax = 5; % Magic variables => heurística
     fac = 0.7;
     u(:, 1) = x0;
@@ -8,10 +8,10 @@ function [t, u] = mimetadap(t0, tfin, x0, h0, hmin, TOL, f, metodo, orden, hmax)
     
     while (t(i) < tfin)
         % Tentativo.
-        [~, z] = feval(metodo, t(i), t(i) + h, 1, u(:, i), f);
+        [~, z] = feval(metodo, t(i), t(i) + h, 1, u(:, i), f, par);
         
         % Cálculo del error norm(dos saltos - un salto).
-        [~, y] = feval(metodo, t(i), t(i) + h, 2, u(:, i), f);
+        [~, y] = feval(metodo, t(i), t(i) + h, 2, u(:, i), f, par);
         ERR = norm(z(:,2) - y(:,3)) / h; % Esto debería hacerse con las phis.
         
         if (ERR <= TOL)

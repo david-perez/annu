@@ -1,4 +1,4 @@
-function [t, u] = mieuler(t0, tfin, N, x0, f)
+function [t, u] = mieuler(t0, tfin, N, x0, f, par)
     h = (tfin - t0) / N;
     t = [t0:h:tfin];
     m = size(x0, 1);
@@ -9,6 +9,6 @@ function [t, u] = mieuler(t0, tfin, N, x0, f)
     u = zeros(m, N + 1);
     u(:, 1) = x0; % u(:, 1) guarda la aproximación en t(1) = t0.
     for n = 1:N
-        u(:, n + 1) = u(:, n) + h * feval(f, t(n), u(:, n));
+        u(:, n + 1) = u(:, n) + h * feval(f, t(n), u(:, n), par);
     end
 end

@@ -1,4 +1,4 @@
-function [t, u] = mirkf45(t0, tfin, x0, h0, hmin, TOL, f, hmax)
+function [t, u] = mirkf45(t0, tfin, x0, h0, hmin, TOL, f, hmax, par)
     facmax = 5; % Magic variables => heurística
     fac = 0.7;
     u(:, 1) = x0;
@@ -22,7 +22,7 @@ function [t, u] = mirkf45(t0, tfin, x0, h0, hmin, TOL, f, hmax)
     
     while (t(i) < tfin)
         for j = 1:6
-            K(:, j) = feval(f, t(i) + h * c(j), u(:, i) + h * (K * A(j, :).'));
+            K(:, j) = feval(f, t(i) + h * c(j), u(:, i) + h * (K * A(j, :).'), par);
         end
         % Tentativo.
         phi1 = K * b1.';
