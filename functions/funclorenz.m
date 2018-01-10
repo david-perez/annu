@@ -1,7 +1,8 @@
 function f = funclorenz(t, x, ~)
-    % x'(t) = sigma*(y(t) ? x(t))
-    % y'(t) = ro*x(t) ? y(t) ? x(t)z(t)
-    % z'(t) = x(t)y(t) ? beta*z(t)
+    % Práctica 2.10.5
+    % x'(t) = sigma*(y(t) - x(t))
+    % y'(t) = ro*x(t) - y(t) - x(t)z(t)
+    % z'(t) = x(t)y(t) - beta*z(t)
     % Prueba con unos tripis x0 = 0, y0 = 5, z0 = 75, t \in [0, 100]
     sigma = 10;
     beta = 8/3;
