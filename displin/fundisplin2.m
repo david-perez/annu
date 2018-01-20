@@ -1,5 +1,5 @@
 function v = fundisplin2(t, x, pq)
-    % Problema homog�neo.
+    % Problema homogéneo.
     p = pq{1};
     q = pq{2};
     pt = feval(p, t);

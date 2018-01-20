@@ -21,7 +21,7 @@ function [t, x] = midisplin(pqr, t0, T, N, a, b, C1, C2)
     else
         cond = v2(2, N + 1);
     end
-    if abs(cond) > eps % Existe soluci�n �nica.
+    if abs(cond) > eps % Existe solución única.
         if C2 == 0
             s = ((b - v1(1, N + 1)) / v2(1, N + 1));
         else
@@ -37,7 +37,7 @@ function [t, x] = midisplin(pqr, t0, T, N, a, b, C1, C2)
         if abs(cond) < eps % eps está globalmente definido en MATLAB.
             % Infinitas soluciones v1 + s * v2. Devolvemos v1.
             x = v1;
-        else % No hay soluci�n.
+        else % No hay solución.
             t = [];
             x = [];
         end

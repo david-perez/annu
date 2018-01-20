@@ -28,20 +28,20 @@ function [t, u] = mirkf45(t0, tfin, x0, h0, hmin, TOL, f, hmax, par)
         phi1 = K * b1.';
         z = u(:, i) + h * phi1;
         
-        % C�lculo del error.
+        % Cálculo del error.
         phi2 = K * b2.';
         ERR = norm(phi1 - phi2);
         
         if (ERR <= TOL)
-            t = [t, t(i) + h]; % Usamos z que lo obtenemos con el m�todo de menor orden.
-            u = [u, z]; % Ampliamos el array uno por uno porque no sabemos cu�l es el tama�o final.
+            t = [t, t(i) + h]; % Usamos z que lo obtenemos con el método de menor orden.
+            u = [u, z]; % Ampliamos el array uno por uno porque no sabemos cuál es el tamaño final.
             i = i + 1;
         end
         
         h = min([hmax, h * min([facmax, fac * (TOL / ERR) ^ (1 / orden)])]);
         
-        if (h < hmin) % Aqu� habr� seguramente una as�ntota, as� que paramos y hacemos return.
-            disp('Error: el paso es m�s peque�o que hmin')
+        if (h < hmin) % Aquí habrá seguramente una asíntota, así que paramos y hacemos return.
+            disp('Error: el paso es más pequeño que hmin.')
             return
         end
     end
