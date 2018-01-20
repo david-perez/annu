@@ -1,13 +1,13 @@
 function [t, u] = mirkf45(t0, tfin, x0, h0, hmin, TOL, f, hmax, par)
-    facmax = 5; % Magic variables => heurística
-    fac = 0.7;
+    facmax = 5;
+    fac = 0.9;
     u(:, 1) = x0;
     t(1) = t0;
     h = h0;
-    i = 1; % Los arrays empiezan en uno en esta mierda de lenguaje.
+    i = 1;
     
     m = size(x0, 1);
-    orden = 4;
+    orden = 4; % El orden del mÃ©todo interno (el externo tiene orden 5).
     c = [0, 1/4, 3/8, 12/13, 1, 1/2];
     A = [0, 0, 0, 0, 0, 0; ...
         1/4, 0, 0, 0, 0, 0; ...
@@ -28,21 +28,21 @@ function [t, u] = mirkf45(t0, tfin, x0, h0, hmin, TOL, f, hmax, par)
         phi1 = K * b1.';
         z = u(:, i) + h * phi1;
         
-        % Cálculo del error.
+        % Cï¿½lculo del error.
         phi2 = K * b2.';
         ERR = norm(phi1 - phi2);
         
         if (ERR <= TOL)
-            t = [t, t(i) + h]; % Usamos z que lo obtenemos con el método de menor orden.
-            u = [u, z]; % Ampliamos el array uno por uno porque no sabemos cuál es el tamaño final.
+            t = [t, t(i) + h]; % Usamos z que lo obtenemos con el mï¿½todo de menor orden.
+            u = [u, z]; % Ampliamos el array uno por uno porque no sabemos cuï¿½l es el tamaï¿½o final.
             i = i + 1;
         end
         
         h = min([hmax, h * min([facmax, fac * (TOL / ERR) ^ (1 / orden)])]);
         
-        if (h < hmin) % Aquí habrá seguramente una asíntota, así que paramos y hacemos return.
-            disp('Error: el paso es más pequeño que hmin')
+        if (h < hmin) % Aquï¿½ habrï¿½ seguramente una asï¿½ntota, asï¿½ que paramos y hacemos return.
+            disp('Error: el paso es mï¿½s pequeï¿½o que hmin')
             return
         end
-        
     end
+    
