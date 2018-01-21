@@ -1,4 +1,9 @@
 function v = fundispnolin(t, x, ffxfy)
+    % v'(t) = w(t)
+    % w'(t) = f(t, v(t), w(t))
+    % z'(t) = u(t)
+    % u'(t) = f_y(t, v(t), w(t)) * u(t) + f_x(t, v(t), w(t)) * z(t)
+
     f = ffxfy{1};
     fx = ffxfy{2};
     fy = ffxfy{3};
